@@ -1,0 +1,18 @@
+<html>
+<body>
+  <h1 id="x-achse"></h1>
+  <h1 id="y-achse"></h1>
+  <h1 id="z-achse"></h1>
+  <script type="text/javascript">
+  window.ondevicemotion = function(coords) {
+      var x = coords.acceleration.x;
+      var y = coords.acceleration.y;
+      var z = coords.acceleration.z;
+
+      $('#x-achse').html('X-Achse:' + x);
+      $('#y-achse').html('Y-Achse:' + y);
+      $('#z-achse').html('Z-Achse:' + z);
+  }
+  </script>
+</body>
+</html>
