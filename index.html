@@ -1,0 +1,34 @@
+<html manifest="jumpstats.appcache">
+<head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  <h1 id="x-achse"></h1>
+  <h1 id="y-achse"></h1>
+  <h1 id="z-achse"></h1>
+  <br>
+  <h1 id="z-max"></h1>
+  <h1 id="z-min"></h1>
+  <script type="text/javascript">
+    if (window.DeviceOrientationEvent) {
+      $('#x-achse').html('supported');
+    }
+    var zMax,zMin;
+    zMin = 100;
+    zMax = -100;
+    window.ondevicemotion = function(event) {
+      var x = event.acceleration.x;
+      var y = event.acceleration.y;
+      var z = event.acceleration.z;
+      if (z < zMin) zMin = z;
+      if (z > zMax) zMax = z;
+      $('#x-achse').html('X-Achse:' + x);
+      $('#y-achse').html('Y-Achse:' + y);
+      $('#z-achse').html('Z-Achse:' + z);
+
+      $('#z-min').html('Z-Min:' + zMin);
+      $('#z-max').html('Z-Max:' + zMax);
+    }
+  </script>
+</body>
+</html>
