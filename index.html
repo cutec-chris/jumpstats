@@ -15,6 +15,15 @@
     if (window.DeviceOrientationEvent) {
       $('#x-achse').html('supported');
     }
+
+    mimaChart({
+      type: "donut",
+      data: [{
+        l: "slice", // "l" label
+        v: 10, // "v" value
+      }]
+    });
+
     var zMax,zMin;
     zMin = 100;
     zMax = -100;
