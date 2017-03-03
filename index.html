@@ -1,10 +1,8 @@
-<html>
+<html manifest="jumpstats.appcache">
 <head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
-   test
-   manifest="jumpstats.appcache"
   <h1 id="x-achse"></h1>
   <h1 id="y-achse"></h1>
   <h1 id="z-achse"></h1>
@@ -15,15 +13,6 @@
     if (window.DeviceOrientationEvent) {
       $('#x-achse').html('supported');
     }
-
-    mimaChart({
-      type: "donut",
-      data: [{
-        l: "slice", // "l" label
-        v: 10, // "v" value
-      }]
-    });
-
     var zMax,zMin;
     zMin = 100;
     zMax = -100;
@@ -41,6 +30,5 @@
       $('#z-max').html('Z-Max:' + zMax);
     }
   </script>
-  <script src="mimaCharts.min.js"></script>
 </body>
 </html>
