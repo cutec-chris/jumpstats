@@ -1,7 +1,4 @@
-<html manifest="jumpstats.appcache">
-<head>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-</head>
+<html> <!--manifest="jumpstats.appcache"-->
 <body>
   <h1 id="x-achse"></h1>
   <h1 id="y-achse"></h1>
@@ -11,7 +8,8 @@
   <h1 id="z-min"></h1>
   <script type="text/javascript">
     if (window.DeviceOrientationEvent) {
-      $('#x-achse').html('supported');
+      var elem = document.querySelector('#x-achse');
+      elem.innerHTML = 'supported';
     }
     var zMax,zMin;
     zMin = 100;
@@ -22,12 +20,12 @@
       var z = event.acceleration.z;
       if (z < zMin) zMin = z;
       if (z > zMax) zMax = z;
-      $('#x-achse').html('X-Achse:' + x);
-      $('#y-achse').html('Y-Achse:' + y);
-      $('#z-achse').html('Z-Achse:' + z);
+      document.querySelector('#x-achse').innerHTML = 'X-Achse:' + x;
+      document.querySelector('#y-achse').innerHTML = 'Y-Achse:' + y;
+      document.querySelector('#z-achse').innerHTML = 'Z-Achse:' + z;
 
-      $('#z-min').html('Z-Min:' + zMin);
-      $('#z-max').html('Z-Max:' + zMax);
+      document.querySelector('#z-min').innerHTML = 'Z-Min:' + zMin;
+      document.querySelector('#z-max').innerHTML = 'Z-Max:' + zMax;
     }
   </script>
 </body>
