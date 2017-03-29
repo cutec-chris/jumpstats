@@ -1,4 +1,18 @@
 <html> <!--manifest="jumpstats.appcache"-->
+  <head>
+    <title>Task App</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script src="codebase/dhtmlx.js" type="text/javascript"></script>
+    <script src="appbase/promet.js" type="text/javascript"></script>
+    <script src="appbase/promet-datastore.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="codebase/fonts/font_awesome/css/font-awesome.min.css"/>
+    <link rel="STYLESHEET" type="text/css" href="codebase/dhtmlx.css">
+    <script type="text/javascript">
+    dhtmlxEvent(window,"load",function(){
+    });
+    </script>
+  </head>
 <body>
   <h1 id="x-achse"></h1>
   <h1 id="y-achse"></h1>
@@ -8,8 +22,16 @@
   <h1 id="z-min"></h1>
 
   <font size=12><a href="javascript:location.reload()">Reset</a></font>
+  <div id=" chart_container" style="width:280px;height:250px;"></div>
 
   <script type="text/javascript">
+    var chart =  new dhtmlXChart({
+    view: "pie",
+    container: "chart_container",
+    value: "#height#",
+    label: "#time#"
+    });
+
     if (window.DeviceOrientationEvent) {
       var elem = document.querySelector('#x-achse');
       elem.innerHTML = 'supported';
@@ -17,6 +39,7 @@
     var zMax,zMin;
     zMin = 100;
     zMax = -100;
+
     window.ondevicemotion = function(event) {
       var x = event.acceleration.x;
       var y = event.acceleration.y;
