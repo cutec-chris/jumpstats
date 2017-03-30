@@ -14,22 +14,23 @@
     </script>
   </head>
 <body>
-  <h1 id="x-achse"></h1>
-  <h1 id="y-achse"></h1>
-  <h1 id="z-achse"></h1>
+  <div id="chart_container" style="width:100%;height:350px;"></div>
   <br>
-  <h1 id="z-max"></h1>
-  <h1 id="z-min"></h1>
+  <p id="x-achse"></p>
+  <p id="y-achse"></p>
+  <p id="z-achse"></p>
+  <br>
+  <p id="z-max"></p>
+  <p id="z-min"></p>
 
   <font size=12><a href="javascript:location.reload()">Reset</a></font>
-  <div id="chart_container" style="width:100%;height:350px;"></div>
 
   <script type="text/javascript">
     var chart =  new dhtmlXChart({
     view: "line",
     container: "chart_container",
     value: "#height#",
-    label: "#time#"
+    label:"#height#"
     });
 
     if (window.DeviceOrientationEvent) {
@@ -50,8 +51,8 @@
           chart.remove(chart.first());
         }
         chart.add({
-      	  			time:counter,
-      		  		height:event.acceleration.z
+      		  		height:event.acceleration.z,
+                time:counter
       			  });
       }
       var x = event.acceleration.x;
