@@ -51,7 +51,7 @@
           chart.remove(chart.first());
         }
         var zValue = '';
-        if (event.acceleration.z>5) {
+        if (Math.abs(event.acceleration.z)>5) {
           zValue = Math.round(event.acceleration.z);
         }
         chart.add({
