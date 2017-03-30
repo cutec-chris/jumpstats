@@ -51,7 +51,7 @@
           chart.remove(chart.first());
         }
         chart.add({
-      		  		height:event.acceleration.z,
+      		  		height:Math.round(event.acceleration.z,2),
                 time:counter
       			  });
       }
