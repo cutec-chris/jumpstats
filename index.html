@@ -43,9 +43,9 @@
 
     window.ondevicemotion = function(event) {
 
-      if (Math.abs(event.acceleration.z)>0.6) {
+      if (Math.abs(event.acceleration.z)>1) {
         counter++;
-        if (counter>10) {
+        if (counter>50) {
           counter--;
           chart.remove(chart.first());
         }
