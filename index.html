@@ -22,11 +22,11 @@
   <h1 id="z-min"></h1>
 
   <font size=12><a href="javascript:location.reload()">Reset</a></font>
-  <div id=" chart_container" style="width:280px;height:250px;"></div>
+  <div id="chart_container" style="width:280px;height:250px;"></div>
 
   <script type="text/javascript">
     var chart =  new dhtmlXChart({
-    view: "pie",
+    view: "line",
     container: "chart_container",
     value: "#height#",
     label: "#time#"
@@ -36,7 +36,7 @@
       var elem = document.querySelector('#x-achse');
       elem.innerHTML = 'supported';
     }
-    var zMax,zMin;
+    var zMax,zMin,counter;
     zMin = 100;
     zMax = -100;
 
@@ -52,6 +52,12 @@
 
       document.querySelector('#z-min').innerHTML = 'Z-Min:' + zMin;
       document.querySelector('#z-max').innerHTML = 'Z-Max:' + zMax;
+
+      chart.add({
+      				time:counter,
+      				height:z
+      			});
+      counter++;
     }
   </script>
 </body>
