@@ -42,13 +42,13 @@
 
     window.ondevicemotion = function(event) {
 
-      if (abs(event.acceleration.z-z)>1) {
+      if (Math.abs(event.acceleration.z-z)>1) {
         chart.add({
       	  			time:counter,
       		  		height:z
       			  });
         counter++;
-      }  
+      }
       var x = event.acceleration.x;
       var y = event.acceleration.y;
       var z = event.acceleration.z;
