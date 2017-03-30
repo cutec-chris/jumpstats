@@ -30,7 +30,7 @@
     view: "line",
     container: "chart_container",
     value: "#height#",
-    label:"#height#"
+    label:"#label#"
     });
 
     if (window.DeviceOrientationEvent) {
@@ -50,9 +50,14 @@
           counter--;
           chart.remove(chart.first());
         }
+        var zValue = '';
+        if (event.acceleration.z>5) {
+          zValue = Math.round(event.acceleration.z);
+        }
         chart.add({
-      		  		height:Math.round(event.acceleration.z),
-                time:counter
+      		  		height:event.acceleration.z,
+                time:counter,
+                label:zValue
       			  });
       }
       var x = event.acceleration.x;
